@@ -78,7 +78,7 @@ public class SplashPagerFragment extends Fragment {
                 return;
             }
             //第二、第三页面之间
-            if (position ==1 ){
+            if (position == 1 ){
                 int color= (int) argbEvaluator.evaluate(positionOffset,colorRed,colorYellow);
                 content.setBackgroundColor(color);
             }

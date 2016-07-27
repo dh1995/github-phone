@@ -49,6 +49,7 @@ public class Pager2 extends FrameLayout {
     /** 用来显示当前页面内三张图像的进入动画，只显示一次*/
     public void showAnimation(){
         if (ivBubble1.getVisibility()!=View.VISIBLE){
+            //延时线程
             postDelayed(new Runnable() {
                 @Override
                 public void run() {
