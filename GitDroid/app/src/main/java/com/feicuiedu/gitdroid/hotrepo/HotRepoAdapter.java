@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.feicuiedu.gitdroid.hotrepo.repolist.RepoListFragment;
+
 /**
  * Created by dh1 on 2016/7/27.
  */
