@@ -10,21 +10,25 @@ import com.feicuiedu.gitdroid.R;
 /**
  * Created by dh1 on 2016/7/26.
  */
-public class Pager1 extends FrameLayout{
+public class Pager1 extends FrameLayout {
+
 
     public Pager1(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public Pager1(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public Pager1(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
-    private void init(){
-        LayoutInflater.from(getContext()).inflate(R.layout.content_pager_1,this,true);
+
+    private void init() {
+        LayoutInflater.from(getContext()).inflate(R.layout.content_pager_1, this, true);
     }
+
+
 }

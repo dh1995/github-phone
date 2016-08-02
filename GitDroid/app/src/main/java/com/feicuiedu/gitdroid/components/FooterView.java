@@ -36,7 +36,6 @@ public class FooterView extends FrameLayout{
     private int state = STATE_LOADING;
 
     @Bind(R.id.progressBar)ProgressBar progressBar;
-    @Bind(R.id.tv_complete)TextView tvComplete;
     @Bind(R.id.tv_error)TextView tvError;
 
     public FooterView(Context context) {
@@ -70,15 +69,6 @@ public class FooterView extends FrameLayout{
     public void showLoading(){
         state = STATE_LOADING;
         progressBar.setVisibility(View.VISIBLE);
-        tvComplete.setVisibility(View.GONE);
-        tvError.setVisibility(View.GONE);
-    }
-
-    /** 显示加载完成(没有更多数据时)*/
-    public void showComplete(){
-        state = STATE_COMPLETE;
-        tvComplete.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
     }
 
@@ -86,7 +76,6 @@ public class FooterView extends FrameLayout{
     public void showError(String erroMsg){
         state = STATE_ERROR;
         tvError.setVisibility(View.VISIBLE);
-        tvComplete.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
     }
 
