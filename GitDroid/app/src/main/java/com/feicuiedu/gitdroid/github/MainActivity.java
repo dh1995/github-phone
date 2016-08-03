@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.feicuiedu.gitdroid.R;
 import com.feicuiedu.gitdroid.commons.ActivityUtils;
+import com.feicuiedu.gitdroid.favorite.FavoriteFragment;
 import com.feicuiedu.gitdroid.github.hotrepo.HotRepoFragment;
 import com.feicuiedu.gitdroid.github.hotuser.HotUserFragment;
 import com.feicuiedu.gitdroid.github.login.LoginActivity;
@@ -38,7 +39,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // 热门仓库Fragment
     private HotRepoFragment hotRepoFragment;
+    //热门开发者仓库
     private HotUserFragment hotUserFragment;
+    //我的收藏
+    private FavoriteFragment favoriteFragment;
 
     private Button btnLogin;
     private ImageView ivIcon;
@@ -114,10 +118,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     replaceFragment(hotRepoFragment);
                 }
                 break;
+            //热门开发者
             case R.id.github_hot_coder:
                 if (hotUserFragment == null) hotUserFragment = new HotUserFragment();
                 if (!hotUserFragment.isAdded()) {
                     replaceFragment(hotUserFragment);
+                }
+                break;
+            //我的收藏
+            case R.id.arsenal_my_repo:
+                if (favoriteFragment == null) favoriteFragment = new FavoriteFragment();
+                if (!favoriteFragment.isAdded()){
+                    replaceFragment(favoriteFragment);
                 }
                 break;
         }

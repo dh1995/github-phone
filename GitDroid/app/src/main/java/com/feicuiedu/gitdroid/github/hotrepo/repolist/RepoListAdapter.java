@@ -18,7 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- *  Created by dh1 on 2016/7/28.
+ * Created by dh1 on 2016/7/28.
  */
 public class RepoListAdapter extends BaseAdapter {
 

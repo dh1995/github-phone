@@ -55,18 +55,4 @@ public class Repo implements Serializable{
     public User getOwner() {
         return owner;
     }
-
-    //    {
-//        "id": 29028775,
-//            "name": "react-native",
-//            "full_name": "facebook/react-native",
-//            "owner": {
-//                  "login": "facebook",
-//                "id": 69631,
-//                "avatar_url": "https://avatars.githubusercontent.com/u/69631?v=3",
-//              },
-//        "description": "A framework for building native apps with React.",
-//            "stargazers_count": 33961,
-//            "forks_count": 7122,
-//    },
 }

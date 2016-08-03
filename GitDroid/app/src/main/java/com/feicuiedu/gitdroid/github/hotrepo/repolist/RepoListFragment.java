@@ -136,7 +136,7 @@ public class RepoListFragment extends Fragment
                 presenter.refresh();
             }
         });
-        // 以下代码（只是修改了header样式）
+        // 以下代码只是修改了header样式
         StoreHouseHeader header = new StoreHouseHeader(getContext());
         header.initWithString("I LIKE " + " JAVA");
         header.setPadding(0, 60, 0, 60);
@@ -146,7 +146,7 @@ public class RepoListFragment extends Fragment
         ptrFrameLayout.setBackgroundResource(R.color.colorRefresh);
     }
 
-    // 下拉刷新视图实现----------------------------------------
+    // 下拉刷新视图实现----------------------------------------------
     @Override
     public void showContentView() {
         ptrFrameLayout.setVisibility(View.VISIBLE);
@@ -184,7 +184,7 @@ public class RepoListFragment extends Fragment
         adapter.addAll(datas);
     }
 
-    // 上拉加载更多视图实现----------------------------------------
+    // 上拉加载更多视图实现----------------------------------------------
     @Override public void showLoadMoreLoading() {
         if (listView.getFooterViewsCount() == 0) {
             listView.addFooterView(footerView);

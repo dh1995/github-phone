@@ -17,6 +17,7 @@ public class LoginPresenter {
     private Call<AccessTokenResult> tokenCall;
     private Call<User> userCall;
     private LoginView loginView;
+    private User user;
 
     public LoginPresenter(LoginView loginView){
         this.loginView = loginView;
@@ -57,7 +58,7 @@ public class LoginPresenter {
 
     private Callback<User> userCallback = new Callback<User>() {
         @Override public void onResponse(Call<User> call, Response<User> response) {
-            User user = response.body();
+            user = response.body();
             // 缓存user
             UserRepo.setUser(user);
             loginView.showMessage("登陆成功");
@@ -65,6 +66,7 @@ public class LoginPresenter {
         }
 
         @Override public void onFailure(Call<User> call, Throwable t) {
+            //重置WebView
             loginView.showMessage(t.getMessage());
             loginView.showProgress();
             loginView.resetWeb();

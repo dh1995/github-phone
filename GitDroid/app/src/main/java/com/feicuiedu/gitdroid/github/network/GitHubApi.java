@@ -29,8 +29,8 @@ public interface GitHubApi {
     String CALL_BACK = "feicui";
 
     // GitHub开发者，申请就行
-    String CLIENT_ID = "aa7a3fb1b42f8c07a232";
-    String CLIENT_SECRET = "841a9cfd15ded1abb9d75ba51d2d8dd0189ebb77";
+    String CLIENT_ID = "d1e32c5ac5ae31ffc3c4";
+    String CLIENT_SECRET = "1ea8c6730757244a7c293cbaa7bc19911977cd7e";
 
     // 授权时申请的可访问域
     String AUTH_SCOPE = "user,public_repo,repo";
