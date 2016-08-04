@@ -3,6 +3,7 @@ package com.feicuiedu.gitdroid.favorite.dao;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.feicuiedu.gitdroid.favorite.model.LocalRepo;
 import com.feicuiedu.gitdroid.favorite.model.RepoGroup;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
@@ -17,7 +18,7 @@ public class DBHelp extends OrmLiteSqliteOpenHelper{
 
     private static final String TABLE_NAME = "repo_favorite.db";
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 3;
 
     private static DBHelp dbHelp;
 
@@ -39,8 +40,10 @@ public class DBHelp extends OrmLiteSqliteOpenHelper{
         //创建表
         try {
             TableUtils.createTableIfNotExists(connectionSource, RepoGroup.class);
+            TableUtils.createTableIfNotExists(connectionSource, LocalRepo.class);
             //将本地的默认数据添加到表里
             new RepoGroupDao(this).createOrUpdate(RepoGroup.getDefaultGroups(context));
+            new LocalRepoDao(this).createOrUpdate(LocalRepo.getDefaultLocalRepos(context));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -50,6 +53,7 @@ public class DBHelp extends OrmLiteSqliteOpenHelper{
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             TableUtils.dropTable(connectionSource,RepoGroup.class,true);
+            TableUtils.dropTable(connectionSource,LocalRepo.class,true);
             onCreate(database,connectionSource);
         } catch (SQLException e) {
             throw new RuntimeException(e);

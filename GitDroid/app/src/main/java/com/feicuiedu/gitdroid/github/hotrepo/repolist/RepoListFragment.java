@@ -13,6 +13,10 @@ import android.widget.TextView;
 import com.feicuiedu.gitdroid.R;
 import com.feicuiedu.gitdroid.commons.ActivityUtils;
 import com.feicuiedu.gitdroid.components.FooterView;
+import com.feicuiedu.gitdroid.favorite.dao.DBHelp;
+import com.feicuiedu.gitdroid.favorite.dao.LocalRepoDao;
+import com.feicuiedu.gitdroid.favorite.model.LocalRepo;
+import com.feicuiedu.gitdroid.favorite.model.RepoConverter;
 import com.feicuiedu.gitdroid.github.hotrepo.Language;
 import com.feicuiedu.gitdroid.github.hotrepo.repolist.modle.Repo;
 import com.feicuiedu.gitdroid.github.hotrepo.repolist.view.RepoListView;
@@ -83,6 +87,19 @@ public class RepoListFragment extends Fragment
             @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Repo repo = adapter.getItem(position);
                 RepoInfoActivity.open(getContext(),repo);
+            }
+        });
+        //长按某个仓库后，加入我的收藏
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //热门仓库列表上的Repo
+                Repo repo = adapter.getItem(position);
+                LocalRepo localRepo = RepoConverter.convert(repo);
+                // 添加到本地仓库表中去(只认本地仓库实体LocalRepo)
+                new LocalRepoDao(DBHelp.getInstance(getContext())).createOrUpdate(localRepo);
+                activityUtils.showToast("收藏成功");
+                return true;
             }
         });
         // 初始下拉刷新
